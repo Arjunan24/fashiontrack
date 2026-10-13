@@ -1,9 +1,9 @@
 import {
-    createContext,
-    useContext,
-    useMemo,
-    useState,
-    type ReactNode,
+  createContext,
+  useContext,
+  useMemo,
+  useState,
+  type ReactNode,
 } from "react";
 
 export type AppUser = {
