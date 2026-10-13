@@ -11,7 +11,7 @@ const iconMap: Record<string, keyof typeof Ionicons.glyphMap> = {
 };
 
 export function BottomNavigator() {
-  const { theme } = useBrandTheme();
+  const { theme, screenContent } = useBrandTheme();
 
   return (
     <Tabs
@@ -44,25 +44,25 @@ export function BottomNavigator() {
       <Tabs.Screen
         name="dashboard"
         options={{
-          title: "Home",
+          title: screenContent.navigation.dashboard,
         }}
       />
       <Tabs.Screen
         name="wardrobe"
         options={{
-          title: "Wardrobe",
+          title: screenContent.navigation.wardrobe,
         }}
       />
       <Tabs.Screen
         name="live-tracking"
         options={{
-          title: "Tracking",
+          title: screenContent.navigation.tracking,
         }}
       />
       <Tabs.Screen
         name="chat"
         options={{
-          title: "Chat",
+          title: screenContent.navigation.chat,
         }}
       />
     </Tabs>

@@ -22,6 +22,8 @@
     "appleId": "Apple ID",
     "Google": "Google",
     "passwordPlaceholder": "••••••••••",
+    "emailPlaceholder": "e.g. client.noir@atelier.com",
+    "requiredFieldsMessage": "Please add both email and password.",
     "fontFamily": "Georgia",
     "palette": {
       "primary": "#C6A96A",
@@ -65,6 +67,8 @@
     "appleId": "Apple ID",
     "Google": "Google",
     "passwordPlaceholder": "••••••••••",
+    "emailPlaceholder": "e.g. client.noir@atelier.com",
+    "requiredFieldsMessage": "Please add both email and password.",
 
     "fontFamily": "Arial",
     "palette": {
@@ -84,6 +88,245 @@
     },
     "images": {
       "hero": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80"
+    }
+  },
+  "brandAssets": {
+    "luxury": {
+      "dashboardItems": [
+        {
+          "id": "luxury-1",
+          "name": "Silk Cambric Trench",
+          "price": "$3,450",
+          "state": "ATTIRE",
+          "image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
+          "campaignTitle": "The Atelier Silk Edit",
+          "campaignDescription": "Hand-finished Como silk, tailored for timeless elegance.",
+          "courierName": "Émile Laurent",
+          "courierStatus": "FINAL COURIER",
+          "arrivalDay": "Today",
+          "arrivalTime": "4:15",
+          "arrivalPeriod": "PM"
+        },
+        {
+          "id": "luxury-2",
+          "name": "Cashmere Evening Coat",
+          "price": "$4,250",
+          "state": "ARCHIVE",
+          "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80",
+          "campaignTitle": "The Cashmere Collection",
+          "campaignDescription": "A refined silhouette in hand-spun Italian cashmere.",
+          "courierName": "Amélie Moreau",
+          "courierStatus": "ATELIER COURIER",
+          "arrivalDay": "Tomorrow",
+          "arrivalTime": "11:30",
+          "arrivalPeriod": "AM"
+        }
+      ],
+      "wardrobeImages": [
+        "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80"
+      ]
+    },
+    "fashion": {
+      "dashboardItems": [
+        {
+          "id": "fashion-1",
+          "name": "Runway Statement Jacket",
+          "price": "$1,980",
+          "state": "ATTIRE",
+          "image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80",
+          "campaignTitle": "Spring Runway Edit 2025",
+          "campaignDescription": "Bold silhouettes and color-led pieces from the new season.",
+          "courierName": "Amélie Moreau",
+          "courierStatus": "ATELIER COURIER",
+          "arrivalDay": "Today",
+          "arrivalTime": "4:15",
+          "arrivalPeriod": "PM"
+        },
+        {
+          "id": "fashion-2",
+          "name": "Pleated Midi Pop",
+          "price": "$1,450",
+          "state": "ARCHIVE",
+          "image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80",
+          "campaignTitle": "The Pleated Midi Edit",
+          "campaignDescription": "A playful, fluid silhouette for your next statement look.",
+          "courierName": "Émile Laurent",
+          "courierStatus": "FINAL COURIER",
+          "arrivalDay": "Tomorrow",
+          "arrivalTime": "11:30",
+          "arrivalPeriod": "AM"
+        }
+      ],
+      "wardrobeImages": [
+        "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80"
+      ]
+    }
+  },
+  "screenContent": {
+    "navigation": {
+      "dashboard": "Dashboard",
+      "wardrobe": "Wardrobe",
+      "tracking": "Live-tracking",
+      "chat": "Chat"
+    },
+    "header": {
+      "fallbackName": "Camille"
+    },
+    "dashboard": {
+      "title": "Bonjour, {name}",
+      "membershipTier": "GOLD TIER PATRON",
+      "dispatchTitle": "DISPATCH IN MOTION",
+      "arrivalLabel": "EST. ARRIVAL",
+      "packageLabel": "Couture Package in",
+      "packageStatus": "Transit",
+      "arrivalDay": "Today",
+      "arrivalTime": "4:15",
+      "arrivalPeriod": "PM",
+      "locations": ["Atelier Paris Central", "Émile Laurent", "FINAL COURIER"],
+      "metrics": [
+        { "label": "IN TRANSIT", "value": "01" },
+        { "label": "WARDROBE", "value": "24" },
+        { "label": "STYLIST NOTES", "value": "02" }
+      ],
+      "actions": ["+ LOG GARMENT", "@ TRACK ORDER"],
+      "promotion": {
+        "eyebrow": "EXCLUSIVE PREVIEW",
+        "button": "CURATE YOUR LOOK"
+      },
+      "stylistMessage": {
+        "stylist": "Éléonore (Senior Stylist)",
+        "time": "10m ago",
+        "message": "Camille, I reviewed the properties of the new silk collection. Your look is ready and can be tailored for your event.",
+        "suggestions": "2 PENDING SUGGESTIONS",
+        "reply": "TAP TO REPLY"
+      },
+      "curationTitle": "Wardrobe Curation",
+      "viewAll": "VIEW ALL",
+      "selectedLabel": "SELECTED ATTIRE",
+    },
+    "wardrobe": {
+      "title": "Bonjour, {name}",
+      "addGarment": "Add Garment",
+      "collectionCount": "Collection ({count})",
+      "archiveTitle": "Archive Entry",
+      "archiveDescription": "Design a new couture parcel for personalization and styling.",
+      "uploadLabel": "Upload Garment or Runway Shot",
+      "uploadDescription": "High-resolution details by style, occasion or fabric.",
+      "sectionLabel": "GARMENT & COUTURE",
+      "garments": [
+        { "name": "Draped Silk Evening Dress", "status": "Ready" },
+        { "name": "Tailored Jacket", "status": "In review" }
+      ],
+      "saveButton": "SAVE TO WARDROBE & SYNC",
+      "curationTitle": "Atelier Curation",
+      "viewAll": "VIEW ALL",
+      "items": [
+        {
+          "id": "1",
+          "title": "Silk Cambric Trench",
+          "subtitle": "Monochrome Atelier Issue",
+          "price": "$3,450",
+          "status": "Closed",
+          "image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80"
+        },
+        {
+          "id": "2",
+          "title": "Sculpted Gabrardino Trench",
+          "subtitle": "Monochrome Atelier Issue",
+          "price": "$3,100",
+          "status": "Closed",
+          "image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80"
+        },
+        {
+          "id": "3",
+          "title": "Fine Gauge Cashmere Mock",
+          "subtitle": "Hand-knit wool blend",
+          "price": "$1,890",
+          "status": "Ready",
+          "image": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80"
+        }
+      ],
+      "colorName": "Rose",
+      "closeAction": "Close",
+      "styleAction": "Style Look"
+    },
+    "tracking": {
+      "title": "Live tracking",
+      "dispatchTitle": "Dispatch in motion",
+      "arrivalLabel": "EST. ARRIVAL",
+      "packageLabel": "Couture Package in",
+      "packageStatus": "Transit",
+      "arrivalDay": "Today",
+      "arrivalTime": "4:15",
+      "arrivalPeriod": "PM",
+      "locations": ["Atelier Paris Central", "FINAL COURIER", "HURRY AND-OFF"],
+      "routeTitle": "Live Route",
+      "routeDistance": "16 KM",
+      "progressTitle": "Delivery progress",
+      "progress": 68,
+      "checkpoints": [
+        {
+          "id": "1",
+          "label": "Dispatch package in",
+          "status": "Transit",
+          "time": "08:55",
+          "completed": true
+        },
+        {
+          "id": "2",
+          "label": "Approval at concierge",
+          "status": "Processing",
+          "time": "09:40",
+          "completed": true
+        },
+        {
+          "id": "3",
+          "label": "Store arrival",
+          "status": "Scheduled",
+          "time": "10:25",
+          "completed": false
+        }
+      ],
+      "completedLabel": "Completed",
+      "pendingLabel": "Pending"
+    },
+    "chat": {
+      "title": "Messages",
+      "stylist": "Éléonore (Senior Stylist)",
+      "status": "Online now",
+      "messages": [
+        {
+          "id": "1",
+          "type": "incoming",
+          "text": "Good morning Camille, we’ve arranged the fitting pieces for your evening appointment.",
+          "time": "08:16"
+        },
+        {
+          "id": "2",
+          "type": "outgoing",
+          "text": "Please confirm the final selection before 11 AM.",
+          "time": "08:18"
+        },
+        {
+          "id": "3",
+          "type": "incoming",
+          "text": "Absolutely. The silk gown and blazer are ready, with the final alterations scheduled for today.",
+          "time": "08:19"
+        },
+        {
+          "id": "4",
+          "type": "outgoing",
+          "text": "Perfect. I will review the styling notes and confirm by this afternoon.",
+          "time": "08:22"
+        }
+      ],
+      "pendingSuggestions": "2 pending suggestions",
+      "replyAction": "Tap to reply",
+      "messagePlaceholder": "Type a message..."
     }
   }
 }

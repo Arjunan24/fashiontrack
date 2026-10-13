@@ -1,6 +1,5 @@
-import { Redirect } from "expo-router";
+import { Redirect, Stack } from "expo-router";
 
-import { BottomNavigator } from "@/components/navigation/BottomNavigator";
 import { useAuth } from "@/store/auth-store";
 
 export default function AppLayout() {
@@ -10,5 +9,5 @@ export default function AppLayout() {
     return <Redirect href="/(auth)/login" />;
   }
 
-  return <BottomNavigator />;
+  return <Stack screenOptions={{ headerShown: false }} />;
 }

@@ -6,7 +6,13 @@ import {
     type ReactNode,
 } from "react";
 
+import brandConfig from "@/content/brand-config.json";
+
 import { BRAND_OPTIONS, BRAND_PALETTES, type BrandKey } from "./brand";
+
+export type BrandContent = (typeof brandConfig)[BrandKey];
+export type BrandAssets = (typeof brandConfig.brandAssets)[BrandKey];
+export type ScreenContent = (typeof brandConfig)["screenContent"];
 
 export type AppTheme = {
   brand: BrandKey;
@@ -52,6 +58,9 @@ export const createTheme = (brand: BrandKey): AppTheme => ({
 
 type BrandContextValue = {
   brand: BrandKey;
+  brandAssets: BrandAssets;
+  content: BrandContent;
+  screenContent: ScreenContent;
   theme: AppTheme;
   setBrand: (brand: BrandKey) => void;
 };
@@ -64,6 +73,9 @@ export function BrandProvider({ children }: { children: ReactNode }) {
   const value = useMemo<BrandContextValue>(
     () => ({
       brand,
+      brandAssets: brandConfig.brandAssets[brand],
+      content: brandConfig[brand],
+      screenContent: brandConfig.screenContent,
       theme: createTheme(brand),
       setBrand,
     }),
@@ -87,4 +99,3 @@ export function useBrandTheme() {
 
 export { BRAND_OPTIONS, BRAND_PALETTES };
 export type { BrandKey };
-

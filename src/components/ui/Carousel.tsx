@@ -1,68 +1,98 @@
-import { useMemo } from "react";
-import { Dimensions, FlatList, StyleSheet, View } from "react-native";
-
-import { useBrandTheme } from "@/theme";
-
-import { Label } from "./Label";
+import {
+  FlatList,
+  type ListRenderItemInfo,
+  type NativeScrollEvent,
+  type NativeSyntheticEvent,
+  StyleSheet,
+  useWindowDimensions,
+  View,
+} from "react-native";
+import type { ReactElement } from "react";
 
 type CarouselItem = {
   id: string;
-  title: string;
-  subtitle: string;
-  accent?: string;
 };
 
-type CarouselProps = {
-  items: CarouselItem[];
+type CarouselRenderInfo<T> = {
+  item: T;
+  index: number;
+  itemWidth: number;
+  isSelected: boolean;
 };
 
-export function Carousel({ items }: CarouselProps) {
-  const { width } = Dimensions.get("window");
-  const { theme } = useBrandTheme();
+type CarouselProps<T extends CarouselItem> = {
+  items: T[];
+  selectedItemId?: string;
+  onSelect?: (item: T) => void;
+  renderItem: (info: CarouselRenderInfo<T>) => ReactElement;
+};
 
-  const itemWidth = useMemo(() => width * 0.76, [width]);
+const ITEM_GAP = 12;
+
+export function Carousel<T extends CarouselItem>({
+  items,
+  selectedItemId,
+  onSelect,
+  renderItem,
+}: CarouselProps<T>) {
+  const { width } = useWindowDimensions();
+  const itemWidth = Math.min(width * 0.76, 340);
+  const snapInterval = itemWidth + ITEM_GAP;
+
+  const handleMomentumScrollEnd = (
+    event: NativeSyntheticEvent<NativeScrollEvent>,
+  ) => {
+    if (!onSelect || items.length === 0) return;
+    const index = Math.round(
+      event.nativeEvent.contentOffset.x / snapInterval,
+    );
+    const item = items[index];
+    if (item) onSelect(item);
+  };
+
+  const renderCarouselItem = ({ item, index }: ListRenderItemInfo<T>) =>
+    renderItem({
+      item,
+      index,
+      itemWidth,
+      isSelected: item.id === selectedItemId,
+    });
 
   return (
-    <FlatList
-      data={items}
-      keyExtractor={(item) => item.id}
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      snapToInterval={itemWidth}
-      decelerationRate="fast"
-      contentContainerStyle={styles.list}
-      renderItem={({ item }) => (
-        <View
-          style={[
-            styles.slide,
-            {
-              width: itemWidth,
-              backgroundColor: item.accent ?? theme.colors.primary,
-            },
-          ]}
-        >
-          <Label variant="subtitle" style={{ color: "#FFFFFF" }}>
-            {item.title}
-          </Label>
-          <Label variant="muted" style={{ color: "rgba(255,255,255,0.8)" }}>
-            {item.subtitle}
-          </Label>
-        </View>
-      )}
-    />
+    <View>
+      <FlatList
+        horizontal
+        data={items}
+        extraData={selectedItemId}
+        keyExtractor={(item) => item.id}
+        renderItem={renderCarouselItem}
+        showsHorizontalScrollIndicator={false}
+        snapToInterval={snapInterval}
+        decelerationRate="fast"
+        getItemLayout={(_, index) => ({
+          length: itemWidth,
+          offset: snapInterval * index,
+          index,
+        })}
+        contentContainerStyle={styles.list}
+        ItemSeparatorComponent={ItemSeparator}
+        onScrollEndDrag={handleMomentumScrollEnd}
+        onMomentumScrollEnd={handleMomentumScrollEnd}
+        nestedScrollEnabled
+      />
+    </View>
   );
+}
+
+function ItemSeparator() {
+  return <View style={styles.separator} />;
 }
 
 const styles = StyleSheet.create({
   list: {
-    gap: 14,
-    paddingRight: 20,
+    paddingHorizontal: 0,
   },
-  slide: {
-    borderRadius: 22,
-    padding: 18,
-    height: 150,
-    justifyContent: "flex-end",
-    gap: 8,
+  separator: {
+    width: ITEM_GAP,
   },
 });
