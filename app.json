@@ -9,10 +9,10 @@
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon",
-      "bundleIdentifier": "com.example.fashion-track"
+      "bundleIdentifier": "com.fashiontrack.app"
     },
     "android": {
-      "package": "com.example.fashion-track",
+      "package": "com.fashiontrack.app",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",

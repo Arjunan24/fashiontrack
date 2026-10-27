@@ -78,14 +78,13 @@ jobs:
 
       - name: Install JavaScript dependencies
         run: npm ci
+      - name: Generate IOS project
+        run: npx expo prebuild --platform ios
 
       - name: Install CocoaPods dependencies
         run: |
           cd ios
           pod install
-
-      - name: Generate IOS project
-        run: npx expo prebuild --platform ios
 
       - name: Build simulator app
         run: |
