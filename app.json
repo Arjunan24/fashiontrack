@@ -8,9 +8,11 @@
     "scheme": "fashiontrack",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "bundleIdentifier": "com.example.fashion-track"
     },
     "android": {
+      "package": "com.example.fashion-track",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
@@ -37,6 +39,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "57ec9c5e-c6f6-4cf5-af35-da61f6559454"
+      }
     }
   }
 }
