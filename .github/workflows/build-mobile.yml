@@ -80,6 +80,11 @@ jobs:
         run: npm ci
       - name: Generate IOS project
         run: npx expo prebuild --platform ios
+      - name: Check iOS workspace
+        run: |
+          ls -la ios/
+          find ios -name "*.xcworkspace" -maxdepth 3
+          find ios -name "*.xcodeproj"
 
       - name: Install CocoaPods dependencies
         run: |
@@ -89,10 +94,10 @@ jobs:
       - name: Build simulator app
         run: |
           xcodebuild \
-            -workspace ios/CICDPractice.xcworkspace \
-            -scheme CICDPractice \
-            -configuration Debug \
-            -sdk iphonesimulator \
-            -destination 'generic/platform=iOS Simulator' \
-            CODE_SIGNING_ALLOWED=NO \
-            build
+          -workspace ios/FashionTrack.xcworkspace \
+          -scheme FashionTrack \
+          -configuration Debug \
+          -sdk iphonesimulator \
+          -destination 'generic/platform=iOS Simulator' \
+          CODE_SIGNING_ALLOWED=NO \
+          build
