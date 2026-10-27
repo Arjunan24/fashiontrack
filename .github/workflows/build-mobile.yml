@@ -26,9 +26,6 @@ jobs:
       - name: Run Lint
         run: npm run lint
 
-      - name: Generate Android project
-        run: npx expo prebuild --platform android
-
   android-build:
     name: Build Android APK
     runs-on: ubuntu-latest
@@ -44,6 +41,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Generate Android project
+        run: npx expo prebuild --platform android
 
       - uses: actions/setup-java@v4
         with:
